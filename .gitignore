@@ -15,6 +15,10 @@ local.properties
 .classpath
 .settings/
 .loadpath
+*/target
+deps/bundles
+deps/libs
+felix-4.2.1/felix-cache
 
 # External tool builders
 .externalToolBuilders/
