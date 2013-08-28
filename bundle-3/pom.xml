@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>osgi</artifactId>
+    <groupId>my.osgi</groupId>
+    <version>1.0</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>bundle-3</artifactId>
+  <packaging>bundle</packaging>
+
+  <properties>
+    <import.package>
+      org.springframework.aop,
+      org.springframework.aop.framework,
+      org.aopalliance.aop,
+      <!--if we import this package the problem solves-->
+      <!--my.bundle.one,-->
+      *
+    </import.package>
+    <export.package>my.bundle.third</export.package>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>bundle-2</artifactId>
+      <type>bundle</type>
+    </dependency>
+  </dependencies>
+
+
+</project>

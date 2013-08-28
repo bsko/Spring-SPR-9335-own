@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>osgi</artifactId>
+    <groupId>my.osgi</groupId>
+    <version>1.0</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>deps</artifactId>
+  <packaging>pom</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-system-deps</id>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>libs</outputDirectory>
+              <excludeGroupIds>${project.groupId}</excludeGroupIds>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-project-bundles</id>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>bundles</outputDirectory>
+              <includeGroupIds>${project.groupId}</includeGroupIds>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>${groupId}</groupId>
+      <artifactId>bundle-1</artifactId>
+      <type>bundle</type>
+    </dependency>
+    <dependency>
+      <groupId>${groupId}</groupId>
+      <artifactId>bundle-2</artifactId>
+      <type>bundle</type>
+    </dependency>
+    <dependency>
+      <groupId>${groupId}</groupId>
+      <artifactId>bundle-3</artifactId>
+      <type>bundle</type>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>bundle-4</artifactId>
+      <type>bundle</type>
+    </dependency>
+    <!--spring framework-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>org.springframework.core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>org.springframework.beans</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>org.springframework.context</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>org.springframework.context.support</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>org.springframework.expression</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>org.springframework.asm</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>org.springframework.aop</artifactId>
+      <version>${spring.framework.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.aopalliance</groupId>
+      <artifactId>com.springsource.org.aopalliance</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>net.sourceforge.cglib</groupId>
+      <artifactId>com.springsource.net.sf.cglib</artifactId>
+    </dependency>
+
+    <!--spring dm-->
+    <dependency>
+      <groupId>org.springframework.osgi</groupId>
+      <artifactId>org.springframework.osgi.io</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.osgi</groupId>
+      <artifactId>org.springframework.osgi.core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.osgi</groupId>
+      <artifactId>org.springframework.osgi.extender</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>com.springsource.org.aspectj.weaver</artifactId>
+    </dependency>
+
+    <!--logging-->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>com.springsource.slf4j.api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>com.springsource.slf4j.simple</artifactId>
+    </dependency>
+  </dependencies>
+
+
+</project>
